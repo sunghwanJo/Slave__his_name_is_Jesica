@@ -1,10 +1,40 @@
 <!doctype html>
 <html>
     <head>
+        <script src="{{ url_for('static', filename='js/jquery-1.8.2.min.js') }}"></script>
+        <style>
+            #jesica {
+                position:absolute:
+                top:0;
+                left:0;
+                opacity:0;
+                border:1px solid red;
+                height:20px;
+                width:20px;
+                margin-left:-50px;
+                -webkit-transform:scale(3.0, 1.0)
+            }
+
+
+        </style>
     </head>
     <body>
+        <div style="position: relative;">
+            <button>Speech</button>
+            <input class="" id="jesica" type="text" value="" x-webkit-speech />
+        </div>    
         <h1>Hi I'm Jesica, Your slave</h1>
-        <input id="jesica" speech >
-        <input id="command" speech>
+        <input id="command" speech/>
+        <script>
+        $(function(){
+            jesica = $('#jesica')
+            command = $('#command')
+            console.log(jesica)
+            jesica.bind('webkitspeechchange', function(){
+                command.val('start command form') 
+            })
+        })
+        
+        </script>
     </body>
 </html>
